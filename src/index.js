@@ -80,7 +80,7 @@ var app = express();
 
 app.use(bodyParser.json());
 
-app.get("/", function (req, res) {
+app.all("/", function (req, res) {
   res.end();
 
   console.log(req.body);
