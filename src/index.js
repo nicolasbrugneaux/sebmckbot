@@ -92,4 +92,8 @@ app.get("/", function (req, res) {
   });
 });
 
-app.listen(process.env.PORT);
+console.log(process.env);
+
+app.listen(process.env.PORT, function () {
+  console.log("Listening...");
+});
