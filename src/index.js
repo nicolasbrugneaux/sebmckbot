@@ -61,7 +61,7 @@ class Bot {
   }
 
   async onEvent(event) {
-    if (!event.hook || !event.repository || !event.sender) return;
+    if (!event.repository || !event.sender) return;
 
     if (event.issue && event.action === "opened") {
       if (this.isQuestion(event)) {
