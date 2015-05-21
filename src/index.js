@@ -39,7 +39,8 @@ class Bot {
         },
         method: method,
         url: `https://api.github.com/${url}`,
-        form: body
+        json: true,
+        body: body
       }, function (err, res, body) {
         if (err) {
           reject(err);
