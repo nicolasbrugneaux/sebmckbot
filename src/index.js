@@ -53,13 +53,13 @@ class Bot {
 
   async closeIssue(event, action) {
     await this.commentIssue(event, action);
-    await this.request("PATCH", `/repos/${event.repository.full_name}/issues/${event.issue.number}`, {
+    await this.request("PATCH", `repos/${event.repository.full_name}/issues/${event.issue.number}`, {
       state: "closed"
     });
   }
 
   async commentIssue(event, action) {
-    await this.request("POST", `/repos/${event.repository.full_name}/issues/${event.issue.number}/comments`, {
+    await this.request("POST", `repos/${event.repository.full_name}/issues/${event.issue.number}/comments`, {
       body: templates[action]
     });
   }
@@ -90,13 +90,11 @@ app.all("/", function (req, res) {
 
   console.log(req.body);
 
-  setTimeout(function () {
-    bot.onEvent(req.body).then(function (data) {
-      console.log(data);
-    }, function (err) {
-      console.error(err.stack);
-    });
-  }, 2000);
+  bot.onEvent(req.body).then(function (data) {
+    console.log(data);
+  }, function (err) {
+    console.error(err.stack);
+  });
 });
 
 console.log(process.env);
