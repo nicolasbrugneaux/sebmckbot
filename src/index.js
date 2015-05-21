@@ -53,13 +53,13 @@ class Bot {
 
   async closeIssue(event, action) {
     await this.commentIssue(event, action);
-    await this.request("PATCH", `/repos/${event.repository.full_name}/issues/${event.issue.id}`, {
+    await this.request("PATCH", `/repos/${event.repository.full_name}/issues/${event.issue.number}`, {
       state: "closed"
     });
   }
 
   async commentIssue(event, action) {
-    await this.request("POST", `/repos/${event.repository.full_name}/issues/${event.issue.id}/comments`, {
+    await this.request("POST", `/repos/${event.repository.full_name}/issues/${event.issue.number}/comments`, {
       body: templates[action]
     });
   }
