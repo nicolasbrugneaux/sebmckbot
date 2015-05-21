@@ -89,14 +89,14 @@ app.all("/", function (req, res) {
   res.end();
 
   console.log(req.body);
-  
+
   setTimeout(function () {
     bot.onEvent(req.body).then(function (data) {
       console.log(data);
     }, function (err) {
       console.error(err.stack);
     });
-  , 2000);
+  }, 2000);
 });
 
 console.log(process.env);
