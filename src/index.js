@@ -28,6 +28,7 @@ class Bot {
 
   async request(method, url, body) {
     await new Promise((resolve, reject) => {
+      console.log("Hitting", url, "with method", method, "and body", body);
       request({
         auth: {
           username: this.username,
