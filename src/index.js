@@ -26,7 +26,7 @@ class Bot {
     return event.issue.title.includes("docs") || event.issue.title.includes("documentation") || event.issue.title.includes("website");
   }
 
-  request(method, url, body) {
+  async request(method, url, body) {
     await new Promise((resolve, reject) => {
       request({
         auth: {
