@@ -34,6 +34,9 @@ class Bot {
           username: this.username,
           password: this.password
         },
+        headers: {
+          "User-Agent": "sebmckbot - sebmck@gmail.com"
+        },
         method: method,
         url: `https://api.github.com/${url}`,
         form: body
