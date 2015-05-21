@@ -41,6 +41,7 @@ class Bot {
         if (err) {
           reject(err);
         } else {
+          console.log(body);
           resolve(body);
         }
       });
